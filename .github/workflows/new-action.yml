@@ -1,17 +1,14 @@
-name:'Hello World'
-description:'Greet someone and record the time'
-inputs:
-   who-to-greet: # of input
-    description:who to greet
-    required: false
-    default:'World'
- outputs:   
-    time: # id of output
-    description:' the time we meeted you'
-    runs:
-    using:'node18'
-    main:'index.js'
-    
-    
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: npm install 
+        run: npm install  
+      - name: lint
+        run: npm run eslint
     
     
